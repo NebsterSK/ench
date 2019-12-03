@@ -5,12 +5,13 @@
         <h1>Dashboard</h1>
 
         <div class="row">
-            <div class="col-12 col-lg-3">
+            <div class="col-12 col-lg-2">
                 <h2>Detailed craft</h2>
 
                 <form action="{{ route('crafts.store') }}" method="POST">
                     @csrf
 
+                    <label>Mats</label>
                     <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                         <label class="btn btn-secondary active">
                             <input type="radio" name="mats" id="mats1" value="own" checked> Own
@@ -41,7 +42,8 @@
             <div class="col-12 col-lg-3">
                 <h2>Quick craft</h2>
 
-                <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                <label>Mats</label>
+                <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
                     <label class="btn btn-secondary active">
                         <input type="radio" name="mats" id="mats1" value="own" checked> Own
                     </label>
@@ -51,7 +53,8 @@
                     </label>
                 </div>
 
-                <table class="table table-bordered table-striped mt-2">
+                <label>Enchant</label>
+                <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th scope="col">Enchant</th>
@@ -76,10 +79,12 @@
                 </table>
             </div>
 
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-7">
                 <h2>Top enchants</h2>
 
-                <p>[chart here]</p>
+                <div>
+                    {!! $objChart->container() !!}
+                </div>
 
                 <h2>Recent crafts</h2>
 
@@ -113,4 +118,7 @@
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+    {!! $objChart->script() !!}
 @endsection
