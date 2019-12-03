@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Enchant extends Model {
-    protected $timestamps = false;
+    public $timestamps = false;
 
     protected $fillable = ['name'];
 
