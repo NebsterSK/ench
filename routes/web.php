@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PublicController@index');
+Route::get('/', 'PublicController@index')->middleware('guest')->name('index');
 
 Auth::routes();
 

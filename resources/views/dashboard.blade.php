@@ -1,5 +1,12 @@
 @extends('layouts/main')
 
+@section('head')
+    @parent
+    <meta http-equiv="refresh" content="600">
+@endsection
+
+@section('title', 'Dashboard - Enchanting')
+
 @section('content')
     <div class="container-fluid">
         <h1>Dashboard</h1>
@@ -118,6 +125,10 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    @parent
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
     {!! $objChart->script() !!}

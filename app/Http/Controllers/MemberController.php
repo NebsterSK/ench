@@ -16,13 +16,11 @@ class MemberController extends Controller {
             ->having('crafts_count', '>', 0)
             ->orderBy('crafts_count', 'DESC')
             ->orderBy('name')
-            ->limit(10)
+            ->limit(8)
             ->get();
 
         // Top Enchants
         $objChart = new TopEnchantsChart($arrTopEnchants);
-
-//        return $arrTopEnchants->pluck('name');
 
         // Log
         $arrRecentCrafts = Craft::orderBy('id', 'DESC')->limit(10)->get();

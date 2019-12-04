@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/xs.css') }}" rel="stylesheet">
-    <link href="{{ mix('css/sm.css') }}" rel="stylesheet" media="(min-width:576px)">
-    <link href="{{ mix('css/md.css') }}" rel="stylesheet" media="(min-width:768px)">
-    <link href="{{ mix('css/lg.css') }}" rel="stylesheet" media="(min-width:992px)">
-    <link href="{{ mix('css/xl.css') }}" rel="stylesheet" media="(min-width:1200px)">
+    @section('head')
+        <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/xs.css') }}" rel="stylesheet">
+        <link href="{{ mix('css/sm.css') }}" rel="stylesheet" media="(min-width:576px)">
+        <link href="{{ mix('css/md.css') }}" rel="stylesheet" media="(min-width:768px)">
+        <link href="{{ mix('css/lg.css') }}" rel="stylesheet" media="(min-width:992px)">
+        <link href="{{ mix('css/xl.css') }}" rel="stylesheet" media="(min-width:1200px)">
+    @show
     <title>@yield('title', 'Enchanting')</title>
 </head>
 
@@ -37,6 +39,8 @@
 
     @yield('content')
 
-    <script src="{{ mix('js/app.js') }}" defer></script>
+    @section('js')
+        <script src="{{ mix('js/app.js') }}" defer></script>
+    @show
 </body>
 </html>
