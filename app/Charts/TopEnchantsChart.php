@@ -19,14 +19,5 @@ class TopEnchantsChart extends Chart {
             'backgroundColor' => '#3490dc'
         ]);
         $this->displayLegend(false);
-        $this->options([
-            'scales' => [
-                'xAxes' => [
-                    'ticks' => [
-                        'fontSize' => 20
-                    ]
-                ]
-            ]
-        ]);
     }
 }

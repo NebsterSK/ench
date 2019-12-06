@@ -16,7 +16,7 @@ class MemberController extends Controller {
             ->having('crafts_count', '>', 0)
             ->orderBy('crafts_count', 'DESC')
             ->orderBy('name')
-            ->limit(8)
+            ->limit(10)
             ->get();
 
         // Top Enchants

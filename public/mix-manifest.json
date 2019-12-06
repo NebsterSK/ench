@@ -1,9 +1,11 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/css/xs.css": "/css/xs.css",
-    "/css/sm.css": "/css/sm.css",
-    "/css/md.css": "/css/md.css",
-    "/css/lg.css": "/css/lg.css",
-    "/css/xl.css": "/css/xl.css"
+    "/js/app.js": "/js/app.js?id=8cb81f4ad39387b01649",
+    "/css/app.css": "/css/app.css?id=aea9253ff7858769725b",
+    "/css/xs.css": "/css/xs.css?id=d41d8cd98f00b204e980",
+    "/css/sm.css": "/css/sm.css?id=d41d8cd98f00b204e980",
+    "/css/md.css": "/css/md.css?id=d41d8cd98f00b204e980",
+    "/css/lg.css": "/css/lg.css?id=d41d8cd98f00b204e980",
+    "/css/xl.css": "/css/xl.css?id=d41d8cd98f00b204e980",
+    "/images/logo/274x274.png": "/images/logo/274x274.png?id=f907c61c79726765fcf5",
+    "/images/logo/favicon.png": "/images/logo/favicon.png?id=7473d3cacfeb7e014556"
 }

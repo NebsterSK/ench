@@ -2,10 +2,10 @@
 
 @section('head')
     @parent
-    <meta http-equiv="refresh" content="600">
+    <meta http-equiv="refresh" content="1800">
 @endsection
 
-@section('title', 'Dashboard - Enchanting')
+@section('title', 'Dashboard')
 
 @section('content')
     <div class="container-fluid">
@@ -20,11 +20,11 @@
 
                     <label>Mats</label>
                     <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
-                        <label class="btn btn-secondary active">
+                        <label class="btn btn-primary active">
                             <input type="radio" name="mats" id="mats1" value="own" checked> Own
                         </label>
 
-                        <label class="btn btn-secondary">
+                        <label class="btn btn-primary">
                             <input type="radio" name="mats" id="mats2" value="my"> My
                         </label>
                     </div>
@@ -41,7 +41,7 @@
                     <hr>
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary btn-block">Craft</button>
                     </div>
                 </form>
             </div>
@@ -49,41 +49,53 @@
             <div class="col-12 col-lg-3">
                 <h2>Quick craft</h2>
 
-                <label>Mats</label>
-                <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                    <label class="btn btn-secondary active">
-                        <input type="radio" name="mats" id="mats1" value="own" checked> Own
-                    </label>
+                <form action="{{ route('crafts.store') }}" method="POST">
+                    @csrf
 
-                    <label class="btn btn-secondary">
-                        <input type="radio" name="mats" id="mats2" value="my"> My
-                    </label>
-                </div>
+                    <label>Mats</label>
+                    <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="mats" id="mats1" value="null" checked> Not set
+                        </label>
 
-                <label>Enchant</label>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr>
-                        <th scope="col">Enchant</th>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="mats" id="mats2" value="my"> Own
+                        </label>
 
-                        <th scope="col">Count</th>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="mats" id="mats3" value="my"> My
+                        </label>
+                    </div>
 
-                        <th scope="col">Craft</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    @foreach($arrTopEnchants as $objEnchant)
+                    <label>Enchant</label>
+                    <table class="table table-bordered table-striped">
+                        <thead>
                         <tr>
-                            <td>{{ $objEnchant->name }}</td>
+                            <th scope="col">#</th>
 
-                            <td>{{ $objEnchant->crafts_count }}</td>
+                            <th scope="col">Enchant</th>
 
-                            <td><a href="" class="btn btn-primary btn-block btn-sm">Craft</a></td>
+                            <th scope="col">Count</th>
+
+                            <th scope="col">Craft</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+
+                        <tbody>
+                        @foreach($arrTopEnchants as $objEnchant)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+
+                                <td>{{ $objEnchant->name }}</td>
+
+                                <td class="text-right">{{ $objEnchant->crafts_count }}</td>
+
+                                <td><button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-primary btn-block btn-sm">Craft</button></td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </form>
             </div>
 
             <div class="col-12 col-lg-7">
@@ -102,6 +114,8 @@
 
                             <th scope="col">Enchant</th>
 
+                            <th scope="col">Mats</th>
+
                             <th scope="col"></th>
 
                             <th scope="col"></th>
@@ -111,9 +125,11 @@
                     <tbody>
                         @foreach($arrRecentCrafts as $objCraft)
                             <tr>
-                                <td>{{ $objCraft->created_at->format('j.n.Y H:i:s') }}</td>
+                                <td>{{ $objCraft->created_at->format('j.n. H:i') }}</td>
 
                                 <td>{{ $objCraft->enchant->name }}</td>
+
+                                <td class="text-capitalize">{{ $objCraft->mats }}</td>
 
                                 <td><a href="" class="">Edit</a></td>
 
@@ -129,7 +145,6 @@
 
 @section('js')
     @parent
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
     {!! $objChart->script() !!}
 @endsection

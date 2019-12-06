@@ -21,3 +21,5 @@ mix.sass('resources/sass/xs.sass', 'public/css')
     .sass('resources/sass/md.sass', 'public/css')
     .sass('resources/sass/lg.sass', 'public/css')
     .sass('resources/sass/xl.sass', 'public/css');
+
+mix.version(['public/images']);

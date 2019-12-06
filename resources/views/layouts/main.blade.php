@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{ mix('images/logo/favicon.png') }}">
     @section('head')
         <link href="{{ mix('css/app.css') }}" rel="stylesheet">
         <link href="{{ mix('css/xs.css') }}" rel="stylesheet">
@@ -11,7 +12,7 @@
         <link href="{{ mix('css/lg.css') }}" rel="stylesheet" media="(min-width:992px)">
         <link href="{{ mix('css/xl.css') }}" rel="stylesheet" media="(min-width:1200px)">
     @show
-    <title>@yield('title', 'Enchanting')</title>
+    <title>@yield('title', 'Enchanting') - Classic Enchanter</title>
 </head>
 
 <body>

@@ -25,14 +25,12 @@ class CraftController extends Controller {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request) {
-        Craft::create($request->all() + ['user_id' => Auth::user()->id]);
+        $data = $request->all();
+        $data['user_id'] = Auth::user()->id;
+        if ($request->mats == 'null') $data['mats'] = null;
+
+        Craft::create($data);
 
         return back();
     }
