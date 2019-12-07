@@ -24,7 +24,7 @@ class TopEnchantsChart extends Chart {
                 'xAxes' => [
                         [
                         'ticks' => [
-                            'fontSize' => 12
+                            'fontSize' => 10
                         ]
                     ]
                 ],
