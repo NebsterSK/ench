@@ -11,6 +11,16 @@
     <div class="container-fluid">
         <h1>Dashboard</h1>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <div class="row">
             <div class="col-12 col-lg-2">
                 <h2>Detailed craft</h2>
@@ -59,7 +69,7 @@
                         </label>
 
                         <label class="btn btn-primary">
-                            <input type="radio" name="mats" id="mats2" value="my"> Own
+                            <input type="radio" name="mats" id="mats2" value="own"> Own
                         </label>
 
                         <label class="btn btn-primary">
@@ -72,7 +82,6 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-
                             <th scope="col">Enchant</th>
 
                             <th scope="col">Count</th>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Craft;
 use Auth;
+use App\Http\Requests\CraftStoreRequest;
 
 class CraftController extends Controller {
     /**
@@ -25,12 +26,8 @@ class CraftController extends Controller {
         //
     }
 
-    public function store(Request $request) {
-        $data = $request->all();
-        $data['user_id'] = Auth::user()->id;
-        if ($request->mats == 'null') $data['mats'] = null;
-
-        Craft::create($data);
+    public function store(CraftStoreRequest $request) {
+        Craft::create($request->all());
 
         return back();
     }
