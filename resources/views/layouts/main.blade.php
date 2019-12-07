@@ -17,21 +17,47 @@
 
 <body>
     @section('nav')
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
-            <a class="navbar-brand" href="#">Dashboard</a>
+        <nav id="navbar-app" class="navbar navbar-expand-lg mb-2">
+            <a class="navbar-brand" href="{{ route('dashboard') }}">
+                <img src="{{ mix('images/logo/favicon.png') }}" alt=""> Classic Enchanter
+            </a>
 
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Crafts</a>
+                        <a class="nav-link disabled" href="">Crafts</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Statistics</a>
+                        <a class="nav-link disabled" href="">Statistics</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item disabled" href="">Profile</a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -42,6 +68,7 @@
 
     @section('js')
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <script src="{{ mix('js/main.js') }}" defer></script>
     @show
 </body>
 </html>

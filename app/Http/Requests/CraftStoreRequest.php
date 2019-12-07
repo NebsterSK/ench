@@ -31,6 +31,6 @@ class CraftStoreRequest extends FormRequest {
     public function prepareForValidation() {
         $this->merge(['user_id' => Auth::user()->id]);
 
-        if ($this->mats == 'on') $this->merge(['mats' => null]);
+        if ($this->mats == 'null') $this->merge(['mats' => null]);
     }
 }

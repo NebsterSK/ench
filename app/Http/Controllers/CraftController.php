@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Craft;
-use Auth;
 use App\Http\Requests\CraftStoreRequest;
 
 class CraftController extends Controller {
@@ -63,13 +62,9 @@ class CraftController extends Controller {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id) {
-        //
+    public function destroy(Craft $craft) {
+        $craft->delete();
+
+        return back();
     }
 }

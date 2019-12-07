@@ -11,19 +11,13 @@
     <div class="container-fluid">
         <h1>Dashboard</h1>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        <a href="">lolz</a>
+
+        @include('includes/errors')
 
         <div class="row">
             <div class="col-12 col-lg-2">
-                <h2>Detailed craft</h2>
+                <h2>Craft</h2>
 
                 <form action="{{ route('crafts.store') }}" method="POST">
                     @csrf
@@ -82,6 +76,7 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
+
                             <th scope="col">Enchant</th>
 
                             <th scope="col">Count</th>
@@ -140,9 +135,17 @@
 
                                 <td class="text-capitalize">{{ $objCraft->mats }}</td>
 
-                                <td><a href="" class="">Edit</a></td>
+                                <td><a href="" class="btn btn-secondary btn-sm disabled">Edit</a></td>
 
-                                <td><a href="" class="">Delete</a></td>
+                                <td>
+                                    <form action="{{ route('crafts.destroy', $objCraft->id) }}" method="POST">
+                                        @csrf
+
+                                        @method('DELETE')
+
+                                        <button type="submit" class="btn btn-danger btn-sm delete-confirm">Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

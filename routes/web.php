@@ -19,6 +19,6 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', 'MemberController@dashboard')->name('dashboard');
 
     Route::resource('crafts', 'CraftController')->only([
-        'store'
+        'store', 'destroy'
     ]);
 });
