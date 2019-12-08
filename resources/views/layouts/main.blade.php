@@ -71,6 +71,7 @@
     @section('js')
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="{{ mix('js/main.js') }}" defer></script>
+        @include('sweetalert::alert')
     @show
 </body>
 </html>

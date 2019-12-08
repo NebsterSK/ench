@@ -28,6 +28,8 @@ class CraftController extends Controller {
     public function store(CraftStoreRequest $request) {
         Craft::create($request->all());
 
+        toast('Craft added!','success');
+
         return back();
     }
 
@@ -64,6 +66,8 @@ class CraftController extends Controller {
 
     public function destroy(Craft $craft) {
         $craft->delete();
+
+        toast('Craft deleted!','success');
 
         return back();
     }

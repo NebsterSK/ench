@@ -13,7 +13,8 @@
         "fideloper/proxy": "^4.0",
         "jerodev/laravel-font-awesome": "^1.0",
         "laravel/framework": "^6.2",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "realrashid/sweet-alert": "^3.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
