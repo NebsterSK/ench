@@ -11,8 +11,6 @@
     <div class="container-fluid">
         <h1>Dashboard</h1>
 
-        <a href="">lolz</a>
-
         @include('includes/errors')
 
         <div class="row">
@@ -24,11 +22,11 @@
 
                     <label>Mats</label>
                     <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
-                        <label class="btn btn-primary active">
+                        <label class="btn btn-first active">
                             <input type="radio" name="mats" id="mats1" value="own" checked> Own
                         </label>
 
-                        <label class="btn btn-primary">
+                        <label class="btn btn-first">
                             <input type="radio" name="mats" id="mats2" value="my"> My
                         </label>
                     </div>
@@ -45,7 +43,7 @@
                     <hr>
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-block">Craft</button>
+                        <button type="submit" class="btn btn-first btn-block">Craft</button>
                     </div>
                 </form>
             </div>
@@ -58,15 +56,15 @@
 
                     <label>Mats</label>
                     <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                        <label class="btn btn-primary active">
+                        <label class="btn btn-first active">
                             <input type="radio" name="mats" id="mats1" value="null" checked> Not set
                         </label>
 
-                        <label class="btn btn-primary">
+                        <label class="btn btn-first">
                             <input type="radio" name="mats" id="mats2" value="own"> Own
                         </label>
 
-                        <label class="btn btn-primary">
+                        <label class="btn btn-first">
                             <input type="radio" name="mats" id="mats3" value="my"> My
                         </label>
                     </div>
@@ -77,7 +75,7 @@
                         <tr>
                             <th scope="col">#</th>
 
-                            <th scope="col">Enchant</th>
+                            <th scope="col" style="width:100%">Enchant</th>
 
                             <th scope="col">Count</th>
 
@@ -92,9 +90,9 @@
 
                                 <td>{{ $objEnchant->name }}</td>
 
-                                <td class="text-right">{{ $objEnchant->crafts_count }}</td>
+                                <td class="text-right text-nowrap">{{ $objEnchant->crafts_count }}</td>
 
-                                <td><button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-primary btn-block btn-sm">Craft</button></td>
+                                <td class="text-nowrap"><button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-first btn-block btn-sm">@fa('plus-circle') Craft</button></td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -116,7 +114,7 @@
                         <tr>
                             <th scope="col">Crafted at</th>
 
-                            <th scope="col">Enchant</th>
+                            <th scope="col" style="width:100%">Enchant</th>
 
                             <th scope="col">Mats</th>
 
@@ -129,21 +127,21 @@
                     <tbody>
                         @foreach($arrRecentCrafts as $objCraft)
                             <tr>
-                                <td>{{ $objCraft->created_at->format('j.n. H:i') }}</td>
+                                <td class="text-nowrap">{{ $objCraft->created_at->format('j.n. H:i') }}</td>
 
                                 <td>{{ $objCraft->enchant->name }}</td>
 
                                 <td class="text-capitalize">{{ $objCraft->mats }}</td>
 
-                                <td><a href="" class="btn btn-secondary btn-sm disabled">Edit</a></td>
+                                <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled">@fa('edit') Edit</a></td>
 
-                                <td>
+                                <td class="text-nowrap">
                                     <form action="{{ route('crafts.destroy', $objCraft->id) }}" method="POST">
                                         @csrf
 
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger btn-sm delete-confirm">Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm delete-confirm">@fa('trash') Delete</button>
                                     </form>
                                 </td>
                             </tr>
