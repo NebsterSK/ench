@@ -92,7 +92,7 @@
 
                                 <td class="text-right text-nowrap">{{ $objEnchant->crafts_count }}</td>
 
-                                <td class="text-nowrap"><button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-first btn-block btn-sm">@fa('plus-circle') Craft</button></td>
+                                <td class="text-nowrap"><button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-first btn-block btn-sm">Craft</button></td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -133,7 +133,7 @@
 
                                 <td class="text-capitalize">{{ $objCraft->mats }}</td>
 
-                                <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled">@fa('edit') Edit</a></td>
+                                <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled">Edit</a></td>
 
                                 <td class="text-nowrap">
                                     <form action="{{ route('crafts.destroy', $objCraft->id) }}" method="POST">
@@ -141,7 +141,7 @@
 
                                         @method('DELETE')
 
-                                        <button type="submit" class="btn btn-danger btn-sm delete-confirm">@fa('trash') Delete</button>
+                                        <button type="submit" class="btn btn-danger btn-sm delete-confirm">Delete</button>
                                     </form>
                                 </td>
                             </tr>
