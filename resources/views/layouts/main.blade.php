@@ -29,11 +29,11 @@
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="">Crafts</a>
+                        <a class="nav-link" href="{{ route('crafts.index') }}"><i class="fas fa-list"></i> Crafts</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link disabled" href="">Statistics</a>
+                        <a class="nav-link disabled" href=""><i class="fas fa-chart-bar"></i> Statistics</a>
                     </li>
                 </ul>
 
@@ -45,14 +45,14 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item disabled" href="">Profile</a>
+                                <a class="dropdown-item disabled" href=""><i class="fas fa-user"></i> Profile</a>
 
                                 <div class="dropdown-divider"></div>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                    Logout
+                                    <i class="fas fa-sign-out-alt"></i> Log out
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

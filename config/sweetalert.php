@@ -64,7 +64,7 @@ return [
     | for particular modal just use the padding() helper method.
     */
 
-    'padding' => env('SWEET_ALERT_PADDING', '1rem'),
+    'padding' => env('SWEET_ALERT_PADDING', '0.5rem'),
 
     /*
     |--------------------------------------------------------------------------

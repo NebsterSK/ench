@@ -7,13 +7,12 @@ use App\Craft;
 use App\Http\Requests\CraftStoreRequest;
 
 class CraftController extends Controller {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index() {
-        //
+        $arrCrafts = Craft::orderBy('id', 'DESC')->paginate(5);
+
+        return view('crafts/index')->with([
+            'arrCrafts' => $arrCrafts
+        ]);
     }
 
     /**

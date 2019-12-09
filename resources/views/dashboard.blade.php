@@ -34,16 +34,14 @@
                     <div class="form-group mt-2">
                         <label for="enchant_id">Enchant</label>
                         <select class="form-control" id="enchant_id" name="enchant_id">
-                            @foreach($arrEnchants as $objEnchant)
-                                <option value="{{ $objEnchant->id }}">{{ $objEnchant->name }}</option>
-                            @endforeach
+                            @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
                         </select>
                     </div>
 
                     <hr>
 
                     <div class="text-right">
-                        <button type="submit" class="btn btn-first btn-block">Craft</button>
+                        <button type="submit" class="btn btn-first btn-block"><i class="far fa-plus-square"></i> Craft</button>
                     </div>
                 </form>
             </div>
@@ -85,15 +83,10 @@
 
                         <tbody>
                         @foreach($arrTopEnchants as $objEnchant)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-
-                                <td>{{ $objEnchant->name }}</td>
-
-                                <td class="text-right text-nowrap">{{ $objEnchant->crafts_count }}</td>
-
-                                <td class="text-nowrap"><button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-first btn-block btn-sm">Craft</button></td>
-                            </tr>
+                            @component('components/quickCraftTableLine', [
+                                'objEnchant' => $objEnchant,
+                                'loop' => $loop
+                            ])@endcomponent
                         @endforeach
                         </tbody>
                     </table>
@@ -112,7 +105,7 @@
                 <table class="table table-bordered table-striped table-sm">
                     <thead>
                         <tr>
-                            <th scope="col">Crafted at</th>
+                            <th scope="col" class="text-nowrap">Crafted at</th>
 
                             <th scope="col" style="width:100%">Enchant</th>
 
@@ -125,27 +118,7 @@
                     </thead>
 
                     <tbody>
-                        @foreach($arrRecentCrafts as $objCraft)
-                            <tr>
-                                <td class="text-nowrap">{{ $objCraft->created_at->format('j.n. H:i') }}</td>
-
-                                <td>{{ $objCraft->enchant->name }}</td>
-
-                                <td class="text-capitalize">{{ $objCraft->mats }}</td>
-
-                                <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled">Edit</a></td>
-
-                                <td class="text-nowrap">
-                                    <form action="{{ route('crafts.destroy', $objCraft->id) }}" method="POST">
-                                        @csrf
-
-                                        @method('DELETE')
-
-                                        <button type="submit" class="btn btn-danger btn-sm delete-confirm">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
+                        @each('components/recentCraftTableLine', $arrRecentCrafts, 'objCraft')
                     </tbody>
                 </table>
             </div>
