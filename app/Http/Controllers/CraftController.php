@@ -8,7 +8,7 @@ use App\Http\Requests\CraftStoreRequest;
 
 class CraftController extends Controller {
     public function index() {
-        $arrCrafts = Craft::orderBy('id', 'DESC')->paginate(5);
+        $arrCrafts = Craft::orderBy('id', 'DESC')->paginate(20);
 
         return view('crafts/index')->with([
             'arrCrafts' => $arrCrafts
