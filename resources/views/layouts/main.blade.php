@@ -12,14 +12,14 @@
         <link href="{{ mix('css/lg.css') }}" rel="stylesheet" media="(min-width:992px)">
         <link href="{{ mix('css/xl.css') }}" rel="stylesheet" media="(min-width:1200px)">
     @show
-    <title>@yield('title', 'Enchanting') - Classic Enchanter</title>
+    <title>@yield('title', 'Classic Enchanter')</title>
 </head>
 
 <body>
     @section('nav')
-        <nav id="navbar-app" class="navbar navbar-expand-lg mb-2">
-            <a class="navbar-brand" href="{{ route('dashboard') }}">
-                <img src="{{ mix('images/logo/favicon.png') }}" alt=""> Classic Enchanter
+        <nav id="navbar-app" class="navbar navbar-expand-lg mb-4">
+            <a class="navbar-brand align-content-center" href="{{ route('dashboard') }}">
+                <img src="{{ mix('images/logo/favicon.png') }}" width="24" height="24" alt=""> Dashboard
             </a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">

@@ -16,7 +16,7 @@ Route::get('/', 'PublicController@index')->middleware('guest')->name('index');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/dashboard', 'MemberController@dashboard')->name('dashboard');
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     Route::resource('crafts', 'CraftController')->only([
         'index', 'store', 'destroy'
