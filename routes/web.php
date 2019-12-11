@@ -21,4 +21,6 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('crafts', 'CraftController')->only([
         'index', 'store', 'destroy'
     ]);
+
+    Route::get('/statistics', 'StatisticsController@index')->name('statistics');
 });

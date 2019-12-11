@@ -79,7 +79,7 @@
 
                                     <th scope="col" style="width:100%">Enchant</th>
 
-                                    <th scope="col">Craft</th>
+                                    <th scope="col"></th>
 
                                     <th scope="col">Count</th>
                                 </tr>
@@ -104,7 +104,7 @@
                     <div class="card-body">
                         <h2>Top enchants</h2>
 
-                        <div id="topEnchantsChartContainer">
+                        <div style="height:370px">
                             {!! $objChart->container() !!}
                         </div>
                     </div>

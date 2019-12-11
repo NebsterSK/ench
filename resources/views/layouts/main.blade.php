@@ -33,7 +33,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link disabled" href=""><i class="fas fa-chart-bar"></i> Statistics</a>
+                        <a class="nav-link" href="{{ route('statistics') }}"><i class="fas fa-chart-bar"></i> Statistics</a>
                     </li>
                 </ul>
 
