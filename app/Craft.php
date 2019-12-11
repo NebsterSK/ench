@@ -9,6 +9,11 @@ class Craft extends Model {
 
     protected $with = ['enchant'];
 
+    // Accessors
+    public function getIconAttribute() {
+        return $this->enchant->icon;
+    }
+
     // Relations
     public function enchant() {
         return $this->belongsTo(Enchant::class);

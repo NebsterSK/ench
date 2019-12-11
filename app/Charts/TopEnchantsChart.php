@@ -15,7 +15,6 @@ class TopEnchantsChart extends Chart {
 
         $this->labels($arrLabels);
         $this->dataset('Count', 'bar', $arrTopEnchants->pluck('crafts_count'))->options([
-//            'color' => '#ffc107',
             'backgroundColor' => '#ffc107'
         ]);
         $this->displayLegend(false);

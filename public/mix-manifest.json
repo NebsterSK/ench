@@ -1,12 +1,20 @@
 {
     "/js/app.js": "/js/app.js?id=62bdcf01837e9c556d30",
     "/css/app.css": "/css/app.css?id=71816a67be2fad9e3d22",
-    "/css/xs.css": "/css/xs.css?id=c2b86ad57367723e2824",
+    "/css/xs.css": "/css/xs.css?id=7f7715743d815ce4438f",
     "/css/sm.css": "/css/sm.css?id=d41d8cd98f00b204e980",
     "/css/md.css": "/css/md.css?id=d41d8cd98f00b204e980",
     "/css/lg.css": "/css/lg.css?id=d41d8cd98f00b204e980",
     "/css/xl.css": "/css/xl.css?id=d41d8cd98f00b204e980",
     "/js/main.js": "/js/main.js?id=3f1aef2313e219dd70a0",
+    "/images/icons/2h.jpg": "/images/icons/2h.jpg?id=d6a2aec4aeed4699d0ec",
+    "/images/icons/boots.jpg": "/images/icons/boots.jpg?id=fa5ca71b19c919d3acc4",
+    "/images/icons/bracer.jpg": "/images/icons/bracer.jpg?id=aa03c8faaacaec43216e",
+    "/images/icons/chest.jpg": "/images/icons/chest.jpg?id=2b431683eb69863a5b8a",
+    "/images/icons/cloak.jpg": "/images/icons/cloak.jpg?id=b809b7b5684f62aa6f11",
+    "/images/icons/gloves.jpg": "/images/icons/gloves.jpg?id=8630a06e61e2d8455de6",
+    "/images/icons/shield.jpg": "/images/icons/shield.jpg?id=1a2f94e6a15c81ec4c41",
+    "/images/icons/weapon.jpg": "/images/icons/weapon.jpg?id=058a904abc2d8ef312f4",
     "/images/logo/274x274.png": "/images/logo/274x274.png?id=f907c61c79726765fcf5",
     "/images/logo/favicon.png": "/images/logo/favicon.png?id=7473d3cacfeb7e014556"
 }
