@@ -7,8 +7,10 @@ use App\Enchant;
 use App\Craft;
 use App\Charts\TopEnchantsChart;
 
-class MemberController extends Controller {
-    public function dashboard() {
+class DashboardController extends Controller {
+    public function index() {
+
+        // List of all Enchants
         $arrEnchants = Enchant::orderBy('name')->get();
 
         // Quick craft
@@ -22,14 +24,18 @@ class MemberController extends Controller {
         // Top Enchants
         $objChart = new TopEnchantsChart($arrTopEnchants);
 
-        // Log
-        $arrRecentCrafts = Craft::orderBy('id', 'DESC')->limit(10)->get();
+        // Daily goal
+        $intToday = Craft::whereDate('created_at', date('Y-n-d'))->count();
+
+        // Recent crafts
+        $arrRecentCrafts = Craft::orderBy('id', 'DESC')->limit(8)->get();
 
         return view('dashboard')->with([
             'arrEnchants' => $arrEnchants,
             'arrRecentCrafts' => $arrRecentCrafts,
             'arrTopEnchants' => $arrTopEnchants,
-            'objChart' => $objChart
+            'objChart' => $objChart,
+            'intToday' => $intToday
         ]);
     }
 }

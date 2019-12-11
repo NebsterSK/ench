@@ -1,5 +1,7 @@
 @extends('layouts/main')
 
+@section('title', 'Classic Enchanter')
+
 @section('nav')
 {{-- Do not display navbar --}}
 @endsection
