@@ -12,9 +12,17 @@
         a
             color: #ffffff
             font-size: 16px
+            transition: color 0.1s, background-color 0.1s
 
             &.disabled
-                color: $color-secondary
+                color: $color-secondary !important
 
-        .dropdown-item
-            color: $color-text
+            &:hover
+                background-color: $color-primary-light
+                color: $color-text
+
+        .dropdown-menu
+            border-radius: 0
+
+            .dropdown-item
+                color: $color-text
