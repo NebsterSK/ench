@@ -1,5 +1,5 @@
 <tr>
-    <td class="text-nowrap">{{ $objCraft->created_at->format('j.n. H:i') }}</td>
+    <td class="text-nowrap">{{ $objCraft->created_at->format('j.n.Y H:i:s') }}</td>
 
     <td><img src="images/icons/{{ $objCraft->icon }}" class="rounded" width="24" height="24" alt=""> {{ $objCraft->enchant->name }}</td>
 

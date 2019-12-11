@@ -12,7 +12,7 @@
         <link href="{{ mix('css/lg.css') }}" rel="stylesheet" media="(min-width:992px)">
         <link href="{{ mix('css/xl.css') }}" rel="stylesheet" media="(min-width:1200px)">
     @show
-    <title>@yield('title', 'Enchanting') - Classic Enchanter</title>
+    <title>@yield('title', 'Classic Enchanter')</title>
 </head>
 
 <body>

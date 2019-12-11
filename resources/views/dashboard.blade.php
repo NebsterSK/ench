@@ -5,7 +5,7 @@
     <meta http-equiv="refresh" content="1800">
 @endsection
 
-@section('title', 'Dashboard')
+@section('title', 'Classic Enchanter')
 
 @section('content')
     <div class="container-fluid">
@@ -112,7 +112,13 @@
 
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h2>Recent crafts</h2>
+                        <h2>Daily goal</h2>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 10) ? 100 : $intToday / 10 * 100 }}%;">{{ ($intToday > 10) ? 10 : $intToday }} / 10</div>
+                        </div>
+
+                        <h2 class="mt-2">Recent crafts</h2>
 
                         <table class="table table-bordered table-striped table-sm mb-0">
                             <thead>
