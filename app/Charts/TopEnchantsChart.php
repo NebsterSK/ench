@@ -15,7 +15,6 @@ class TopEnchantsChart extends Chart {
 
         $this->labels($arrLabels);
         $this->dataset('Count', 'bar', $arrTopEnchants->pluck('crafts_count'))->options([
-//            'color' => '#ffc107',
             'backgroundColor' => '#ffc107'
         ]);
         $this->displayLegend(false);
@@ -24,14 +23,14 @@ class TopEnchantsChart extends Chart {
                 'xAxes' => [
                         [
                         'ticks' => [
-                            'fontSize' => 10
+                            'fontSize' => 8
                         ]
                     ]
                 ],
                 'yAxes' => [
                     [
                         'ticks' => [
-                            'fontSize' => 12
+                            'fontSize' => 10
                         ]
                     ]
                 ]
