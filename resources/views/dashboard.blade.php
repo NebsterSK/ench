@@ -9,8 +9,6 @@
 
 @section('content')
     <div class="container-fluid">
-        <h1>Dashboard</h1>
-
         @include('includes/errors')
 
         <div class="row">
@@ -106,7 +104,7 @@
                     <div class="card-body">
                         <h2>Top enchants</h2>
 
-                        <div style="height:230px">
+                        <div id="topEnchantsChartContainer">
                             {!! $objChart->container() !!}
                         </div>
                     </div>

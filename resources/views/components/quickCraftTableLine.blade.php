@@ -2,7 +2,7 @@
     <td>{{ $loop->iteration }}</td>
 
     <td class="text-nowrap">
-        <img src="images/icons/{{ $objEnchant->icon }}" class="" width="20" height="20" alt="">
+        <img src="images/icons/{{ $objEnchant->icon }}" class="rounded" width="24" height="24" alt="">
         {{ $objEnchant->name }}
     </td>
 
