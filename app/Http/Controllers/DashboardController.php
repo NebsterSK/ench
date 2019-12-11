@@ -25,10 +25,10 @@ class DashboardController extends Controller {
         $objChart = new TopEnchantsChart($arrTopEnchants);
 
         // Daily goal
-        $intToday = Craft::whereDate('created_at', date('Y-n-d'))->count();
+        $intToday = Craft::whereDate('created_at', date('Y-m-d'))->count();
 
         // Recent crafts
-        $arrRecentCrafts = Craft::orderBy('id', 'DESC')->limit(8)->get();
+        $arrRecentCrafts = Craft::orderBy('id', 'DESC')->limit(5)->get();
 
         return view('dashboard')->with([
             'arrEnchants' => $arrEnchants,
