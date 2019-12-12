@@ -3,5 +3,5 @@
 
     <td class="text-right">{{ $objMat->count }}</td>
 
-    <td class="text-right text-nowrap">{{ number_format($objMat->perc, 2, ',', ' ') }} %</td>
+    <td class="text-right text-nowrap">{{ number_format($objMat->perc, 1, ',', ' ') }} %</td>
 </tr>
