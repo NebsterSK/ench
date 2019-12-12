@@ -1,6 +1,6 @@
 @extends('layouts/main')
 
-@section('title', 'Crafts')
+@section('title', 'Crafts - Classic Enchanter')
 
 @section('content')
     <div class="container">
