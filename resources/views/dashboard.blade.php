@@ -146,6 +146,10 @@
 
                                 <th scope="col">Mats</th>
 
+                                <th scope="col">Price</th>
+
+                                <th scope="col">Buyer</th>
+
                                 <th scope="col"></th>
 
                                 <th scope="col"></th>
