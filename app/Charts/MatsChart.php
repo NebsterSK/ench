@@ -16,7 +16,7 @@ class MatsChart extends Chart {
         $this->labels($arrLabels);
 
         $this->dataset('Count', 'pie', $arrMats->pluck('count'))->options([
-            'backgroundColor' => ['#ffa000', '#ffc107', '#ffecb3']
+            'backgroundColor' => ['#ffc107', '#ffecb3']
         ]);
 
         $this->displayAxes(false);
