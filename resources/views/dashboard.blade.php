@@ -33,9 +33,22 @@
 
                             <div class="form-group mt-2">
                                 <label for="enchant_id">Enchant</label>
-                                <select class="form-control" id="enchant_id" name="enchant_id">
+                                <select class="form-control form-control-lg" id="enchant_id" name="enchant_id">
                                     @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
                                 </select>
+                            </div>
+
+                            <label for="price">Price</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">g</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="buyer">Buyer</label>
+                                <input type="text" class="form-control" id="buyer" name="buyer" minlength="2" maxlength="20">
                             </div>
 
                             <hr>
@@ -114,7 +127,7 @@
                     <div class="card-body">
                         <h2>Top enchants</h2>
 
-                        <div style="height:370px">
+                        <div style="height:300px">
                             {!! $objChart->container() !!}
                         </div>
                     </div>
