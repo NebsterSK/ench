@@ -38,7 +38,25 @@
                     <div class="card-body">
                         <h2>Most enchanted slot</h2>
 
-                        <p>TBA</p>
+                        <div style="height:260px">
+                            {!! $objSlotChart->container() !!}
+                        </div>
+
+                        <table class="table table-bordered table-striped table-sm mb-0 mt-2">
+                            <thead>
+                            <tr>
+                                <th scope="col">Slot</th>
+
+                                <th scope="col" class="text-right">Count</th>
+
+                                <th scope="col" class="text-right">Percentage</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            @each('components/slotsTableLine', $arrSlots, 'objSlot')
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -74,4 +92,5 @@
     {!! $objTopEnchantsChart->script() !!}
     {!! $objMatsChart->script() !!}
     {!! $objCraftsChart->script() !!}
+    {!! $objSlotChart->script() !!}
 @endsection

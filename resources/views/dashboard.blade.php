@@ -97,6 +97,16 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2>Daily goal <small>{!! ($intToday >= 10) ? ' <i class="fas fa-check text-success"></i>' : '' !!}</small></h2>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 10) ? 100 : $intToday / 10 * 100 }}%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-12 col-lg-7">
@@ -112,13 +122,7 @@
 
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h2>Daily goal</h2>
-
-                        <div class="progress">
-                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 10) ? 100 : $intToday / 10 * 100 }}%;">{{ ($intToday > 10) ? 10 : $intToday }} / 10</div>
-                        </div>
-
-                        <h2 class="mt-2">Recent crafts</h2>
+                        <h2>Recent crafts</h2>
 
                         <table class="table table-bordered table-striped table-sm mb-0">
                             <thead>

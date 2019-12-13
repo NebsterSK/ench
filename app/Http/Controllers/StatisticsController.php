@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Charts\MatsChart;
 use App\Charts\TopEnchantsChart;
 use App\Charts\CraftsPerDayChart;
+use App\Charts\SlotChart;
 use App\Enchant;
 use Illuminate\Http\Request;
 use App\Craft;
@@ -54,11 +55,22 @@ class StatisticsController extends Controller {
             ->get();
         $objCraftsChart = new CraftsPerDayChart($arrCrafts->reverse());
 
+        // Slots
+        $arrSlots = Enchant::select(DB::raw('LEFT(name, LOCATE(\' - \', name) - 1) AS slot, COUNT(crafts.enchant_id) AS count, ROUND(COUNT(enchant_id) / (SELECT COUNT(*) FROM crafts) * 100, 1) AS perc'))
+            ->join('crafts', 'enchants.id', '=', 'crafts.enchant_id')
+            ->groupBy('slot')
+            ->orderBy('count', 'DESC')
+            ->orderBy('slot')
+            ->get();
+        $objSlotChart = new SlotChart($arrSlots);
+
         return view('statistics/index')->with([
             'objTopEnchantsChart' => $objTopEnchantsChart,
             'objMatsChart' => $objMatsChart,
             'arrMats' => $arrMats,
-            'objCraftsChart' => $objCraftsChart
+            'objCraftsChart' => $objCraftsChart,
+            'objSlotChart' => $objSlotChart,
+            'arrSlots' => $arrSlots
         ]);
     }
 }
