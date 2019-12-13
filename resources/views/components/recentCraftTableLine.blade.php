@@ -5,6 +5,10 @@
 
     <td class="text-capitalize">{{ $objCraft->mats }}</td>
 
+    <td class="text-nowrap">{{ ($objCraft->price == '') ? '' : number_format($objCraft->price, 2, ',', ' ') . ' g' }}</td>
+
+    <td class="text-capitalize">{{ $objCraft->buyer }}</td>
+
     <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled"><i class="fas fa-edit"></i> Edit</a></td>
 
     <td class="text-nowrap">
