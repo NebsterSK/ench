@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Craft;
 use App\Http\Requests\CraftStoreRequest;
+use Auth;
 
 class CraftController extends Controller {
     public function index() {
-        $arrCrafts = Craft::orderBy('id', 'DESC')->paginate(20);
+        $arrCrafts = Craft::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->paginate(20);
 
         return view('crafts/index')->with([
             'arrCrafts' => $arrCrafts
