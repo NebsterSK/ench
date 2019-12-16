@@ -2,7 +2,7 @@
 
 @section('head')
     @parent
-    <meta http-equiv="refresh" content="1800">
+    <meta http-equiv="refresh" content="3600">
 @endsection
 
 @section('title', 'Classic Enchanter')
@@ -20,6 +20,13 @@
                         <form action="{{ route('crafts.store') }}" method="POST">
                             @csrf
 
+                            <div class="form-group mt-2">
+                                <label for="enchant_id">Enchant</label>
+                                <select class="form-control form-control-lg" id="enchant_id" name="enchant_id">
+                                    @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
+                                </select>
+                            </div>
+
                             <label>Mats</label>
                             <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
                                 <label class="btn btn-first active">
@@ -29,13 +36,6 @@
                                 <label class="btn btn-first">
                                     <input type="radio" name="mats" id="mats2" value="my"> My
                                 </label>
-                            </div>
-
-                            <div class="form-group mt-2">
-                                <label for="enchant_id">Enchant</label>
-                                <select class="form-control form-control-lg" id="enchant_id" name="enchant_id">
-                                    @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
-                                </select>
                             </div>
 
                             <label for="price">Price</label>
@@ -59,6 +59,16 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h2>Daily goal <small>{!! ($intToday >= 10) ? ' <i class="fas fa-check text-success"></i>' : '' !!}</small></h2>
+
+                        <div class="progress">
+                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 10) ? 100 : $intToday / 10 * 100 }}%;"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-12 col-lg-3">
@@ -69,23 +79,8 @@
                         <form action="{{ route('crafts.store') }}" method="POST">
                             @csrf
 
-                            <label>Mats</label>
-                            <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                                <label class="btn btn-first active">
-                                    <input type="radio" name="mats" id="mats1" value="null" checked> Not set
-                                </label>
-
-                                <label class="btn btn-first">
-                                    <input type="radio" name="mats" id="mats2" value="own"> Own
-                                </label>
-
-                                <label class="btn btn-first">
-                                    <input type="radio" name="mats" id="mats3" value="my"> My
-                                </label>
-                            </div>
-
                             <label>Enchant</label>
-                            <table class="table table-bordered table-striped table-sm mb-0">
+                            <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -107,17 +102,35 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                            <label>Mats</label>
+                            <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
+                                <label class="btn btn-first active">
+                                    <input type="radio" name="mats" id="mats1" value="null" checked> Not set
+                                </label>
+
+                                <label class="btn btn-first">
+                                    <input type="radio" name="mats" id="mats2" value="own"> Own
+                                </label>
+
+                                <label class="btn btn-first">
+                                    <input type="radio" name="mats" id="mats3" value="my"> My
+                                </label>
+                            </div>
+
+                            <label for="price">Price</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01">
+                                <div class="input-group-append">
+                                    <span class="input-group-text">g</span>
+                                </div>
+                            </div>
+
+                            <div class="form-group mt-2">
+                                <label for="buyer">Buyer</label>
+                                <input type="text" class="form-control" id="buyer" name="buyer" minlength="2" maxlength="20">
+                            </div>
                         </form>
-                    </div>
-                </div>
-
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h2>Daily goal <small>{!! ($intToday >= 10) ? ' <i class="fas fa-check text-success"></i>' : '' !!}</small></h2>
-
-                        <div class="progress">
-                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 10) ? 100 : $intToday / 10 * 100 }}%;"></div>
-                        </div>
                     </div>
                 </div>
             </div>

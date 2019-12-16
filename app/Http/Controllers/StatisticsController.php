@@ -7,15 +7,19 @@ use App\Charts\TopEnchantsChart;
 use App\Charts\CraftsPerDayChart;
 use App\Charts\SlotChart;
 use App\Enchant;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use App\Craft;
 use DB;
+use Auth;
 
 class StatisticsController extends Controller {
     public function index() {
 
         // Top Enchants
-        $arrTopEnchants = Enchant::withCount('crafts')
+        $arrTopEnchants = Enchant::withCount(['crafts' => function(Builder $query) {
+                $query->where('user_id', Auth::user()->id);
+            }])
             ->having('crafts_count', '>', 0)
             ->orderBy('crafts_count', 'DESC')
             ->orderBy('name')
@@ -42,6 +46,7 @@ class StatisticsController extends Controller {
 
         // Mats
         $arrMats = Craft::select(DB::raw('COALESCE(mats, \'not set\') AS mats, COUNT(ISNULL(mats)) AS count, ROUND(COUNT(ISNULL(mats)) / (SELECT COUNT(*) FROM crafts) * 100, 1) AS perc'))
+            ->where('user_id', Auth::user()->id)
             ->groupBy('mats')
             ->orderBy('count', 'DESC')
             ->get();
@@ -49,6 +54,7 @@ class StatisticsController extends Controller {
 
         // Crafts per day
         $arrCrafts = Craft::select(DB::raw('DATE(created_at) AS date, COUNT(created_at) AS count'))
+            ->where('user_id', Auth::user()->id)
             ->groupBy('date')
             ->orderBy('date', 'DESC')
             ->limit(8)
@@ -58,6 +64,7 @@ class StatisticsController extends Controller {
         // Slots
         $arrSlots = Enchant::select(DB::raw('LEFT(name, LOCATE(\' - \', name) - 1) AS slot, COUNT(crafts.enchant_id) AS count, ROUND(COUNT(enchant_id) / (SELECT COUNT(*) FROM crafts) * 100, 1) AS perc'))
             ->join('crafts', 'enchants.id', '=', 'crafts.enchant_id')
+            ->where('crafts.user_id', Auth::user()->id)
             ->groupBy('slot')
             ->orderBy('count', 'DESC')
             ->orderBy('slot')
