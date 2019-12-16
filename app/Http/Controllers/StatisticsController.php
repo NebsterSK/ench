@@ -45,7 +45,7 @@ class StatisticsController extends Controller {
         ]);
 
         // Mats
-        $arrMats = Craft::select(DB::raw('COALESCE(mats, \'not set\') AS mats, COUNT(ISNULL(mats)) AS count, ROUND(COUNT(ISNULL(mats)) / (SELECT COUNT(*) FROM crafts) * 100, 1) AS perc'))
+        $arrMats = Craft::select(DB::raw('COALESCE(mats, \'not set\') AS mats, COUNT(ISNULL(mats)) AS count, ROUND(COUNT(ISNULL(mats)) / (SELECT COUNT(*) FROM crafts WHERE user_id = ' . Auth::user()->id . ') * 100, 1) AS perc'))
             ->where('user_id', Auth::user()->id)
             ->groupBy('mats')
             ->orderBy('count', 'DESC')
@@ -62,7 +62,7 @@ class StatisticsController extends Controller {
         $objCraftsChart = new CraftsPerDayChart($arrCrafts->reverse());
 
         // Slots
-        $arrSlots = Enchant::select(DB::raw('LEFT(name, LOCATE(\' - \', name) - 1) AS slot, COUNT(crafts.enchant_id) AS count, ROUND(COUNT(enchant_id) / (SELECT COUNT(*) FROM crafts) * 100, 1) AS perc'))
+        $arrSlots = Enchant::select(DB::raw('LEFT(name, LOCATE(\' - \', name) - 1) AS slot, COUNT(crafts.enchant_id) AS count, ROUND(COUNT(enchant_id) / (SELECT COUNT(*) FROM crafts WHERE user_id = ' . Auth::user()->id . ') * 100, 1) AS perc'))
             ->join('crafts', 'enchants.id', '=', 'crafts.enchant_id')
             ->where('crafts.user_id', Auth::user()->id)
             ->groupBy('slot')

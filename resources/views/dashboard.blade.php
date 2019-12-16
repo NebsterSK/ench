@@ -28,7 +28,7 @@
                             </div>
 
                             <label>Mats</label>
-                            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                            <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
                                 <label class="btn btn-first active">
                                     <input type="radio" name="mats" id="mats1" value="own" checked> Own
                                 </label>
