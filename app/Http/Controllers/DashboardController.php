@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Enchant;
 use App\Craft;
 use App\Charts\TopEnchantsChart;
+use Illuminate\Database\Eloquent\Builder;
+use Auth;
 
 class DashboardController extends Controller {
     public function index() {
@@ -14,7 +16,9 @@ class DashboardController extends Controller {
         $arrEnchants = Enchant::orderBy('name')->get();
 
         // Quick craft
-        $arrTopEnchants = Enchant::withCount('crafts')
+        $arrTopEnchants = Enchant::withCount(['crafts' => function(Builder $query) {
+                $query->where('user_id', Auth::user()->id);
+            }])
             ->having('crafts_count', '>', 0)
             ->orderBy('crafts_count', 'DESC')
             ->orderBy('name')
@@ -25,10 +29,10 @@ class DashboardController extends Controller {
         $objChart = new TopEnchantsChart($arrTopEnchants);
 
         // Daily goal
-        $intToday = Craft::whereDate('created_at', date('Y-m-d'))->count();
+        $intToday = Craft::where('user_id', Auth::user()->id)->whereDate('created_at', date('Y-m-d'))->count();
 
         // Recent crafts
-        $arrRecentCrafts = Craft::orderBy('id', 'DESC')->limit(5)->get();
+        $arrRecentCrafts = Craft::where('user_id', Auth::user()->id)->orderBy('id', 'DESC')->limit(5)->get();
 
         return view('dashboard')->with([
             'arrEnchants' => $arrEnchants,
