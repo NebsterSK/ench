@@ -8,9 +8,15 @@ use App\User;
 use App\Enchant;
 
 $factory->define(Craft::class, function (Faker $faker) {
+    $randomTimestamp = mt_rand(strtotime('-14 days'), time());
+    $randomDate = new DateTime();
+    $randomDate->setTimestamp($randomTimestamp);
+
     return [
         'user_id' => User::all()->random()->id,
         'enchant_id' => Enchant::all()->random()->id,
+        'created_at' => $randomDate,
+        'updated_at' => $randomDate
     ];
 });
 
