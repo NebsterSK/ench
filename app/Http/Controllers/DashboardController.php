@@ -8,6 +8,7 @@ use App\Craft;
 use App\Charts\TopEnchantsChart;
 use Illuminate\Database\Eloquent\Builder;
 use Auth;
+use DB;
 
 class DashboardController extends Controller {
     public function index() {
@@ -25,21 +26,37 @@ class DashboardController extends Controller {
             ->limit(10)
             ->get();
 
-        // Top Enchants
-        $objChart = new TopEnchantsChart($arrTopEnchants);
-
         // Daily goal
-        $intToday = Craft::where('user_id', Auth::user()->id)->whereDate('created_at', date('Y-m-d'))->count();
+        $intToday = Craft::where('user_id', Auth::user()->id)
+            ->whereDate('created_at', date('Y-m-d'))
+            ->count();
 
         // Recent crafts
-        $arrRecentCrafts = Craft::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->limit(5)->get();
+        $arrRecentCrafts = Craft::where('user_id', Auth::user()->id)
+            ->orderBy('created_at', 'DESC')
+            ->limit(5)
+            ->get();
+
+        // List of buyers
+        $arrBuyers = DB::table('crafts')
+            ->select('buyer')->distinct()
+            ->whereNotNull('buyer')
+            ->where([
+                'user_id' => Auth::user()->id,
+            ])
+            ->orderBy('buyer')
+            ->pluck('buyer');
+
+        // Top Enchants chart
+        $objChart = new TopEnchantsChart($arrTopEnchants);
 
         return view('dashboard')->with([
             'arrEnchants' => $arrEnchants,
             'arrRecentCrafts' => $arrRecentCrafts,
             'arrTopEnchants' => $arrTopEnchants,
             'objChart' => $objChart,
-            'intToday' => $intToday
+            'intToday' => $intToday,
+            'arrBuyers' => $arrBuyers
         ]);
     }
 }

@@ -11,6 +11,12 @@
     <div class="container-fluid">
         @include('includes/errors')
 
+        <datalist id="buyers">
+            @foreach($arrBuyers as $strBuyer)
+                <option value="{{ $strBuyer }}">
+            @endforeach
+        </datalist>
+
         <div class="row">
             <div class="col-12 col-lg-2">
                 <div class="card">
@@ -48,7 +54,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="buyer">Buyer</label>
-                                <input type="text" class="form-control" id="buyer" name="buyer" minlength="2" maxlength="20">
+                                <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
                             </div>
 
                             <hr>
@@ -128,7 +134,7 @@
 
                             <div class="form-group mt-2">
                                 <label for="buyer">Buyer</label>
-                                <input type="text" class="form-control" id="buyer" name="buyer" minlength="2" maxlength="20">
+                                <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
                             </div>
                         </form>
                     </div>
