@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 6.9.0 on 2019-12-20 11:01:54.
+ * Generated for Laravel 6.9.0 on 2020-01-03 09:42:31.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -15607,9 +15607,10 @@ namespace RealRashid\SweetAlert\Facades {
     class Alert {
         
         /**
-         * Sets all default config options for middleware alert.
+         * The default configuration for middleware alert.
          *
          * @return \RealRashid\SweetAlert\$config 
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function middleware()
@@ -15619,12 +15620,13 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * Flash a message.
+         * Flash an alert message.
          *
          * @param string $title
          * @param string $text
          * @param array $icon
          * @return void 
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function alert($title = '', $text = '', $icon = null)
@@ -15634,8 +15636,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a success typed alert message with a text and a title.
          *
+         * @param string $title
+         * @param string $text
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function success($title = '', $text = '')
@@ -15645,8 +15650,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a info typed alert message with a text and a title.
          *
+         * @param string $title
+         * @param string $text
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function info($title = '', $text = '')
@@ -15656,8 +15664,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a warning typed alert message with a text and a title.
          *
+         * @param string $title
+         * @param string $text
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function warning($title = '', $text = '')
@@ -15667,8 +15678,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a question typed alert message with a text and a title.
          *
+         * @param string $title
+         * @param string $text
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function question($title = '', $text = '')
@@ -15678,8 +15692,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a error typed alert message with a text and a title.
          *
+         * @param string $title
+         * @param string $text
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function error($title = '', $text = '')
@@ -15689,8 +15706,15 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a message with a custom image and CSS animation disabled.
          *
+         * @param string $title
+         * @param string $text
+         * @param string $imageUrl
+         * @param integer $imageWidth
+         * @param integer $imageHeight
+         * @param string $imageAlt
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function image($title, $text, $imageUrl, $imageWidth = 400, $imageHeight = 200, $imageAlt = '')
@@ -15700,8 +15724,12 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a html typed alert message with html code.
          *
+         * @param string $title
+         * @param string $code
+         * @param string $icon
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function html($title = '', $code = '', $icon = '')
@@ -15711,8 +15739,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display a toast message
          *
+         * @param string $title
+         * @param string $icon
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function toast($title = '', $icon = '')
@@ -15722,8 +15753,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Convert any alert modal to Toast
          *
+         * @param string $position
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function toToast($position = '')
@@ -15733,8 +15766,9 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Convert any alert modal to html
          *
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function toHtml()
@@ -15744,8 +15778,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Add a custom image to alert
          *
+         * @param string $imageUrl
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function addImage($imageUrl)
@@ -15755,8 +15791,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Add footer section to alert()
          *
+         * @param string $code
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function footer($code)
@@ -15766,8 +15804,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * positioned alert dialog
          *
+         * @param string $position
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function position($position = 'top-end')
@@ -15777,8 +15817,14 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
+         * Modal window width
+         * including paddings
+         * (box-sizing: border-box).
          * 
+         * Can be in px or %. The default width is 32rem
          *
+         * @param string $width
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function width($width = '32rem')
@@ -15788,8 +15834,12 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
+         * Modal window padding.
          * 
+         * The default padding is 1.25rem.
          *
+         * @param string $padding
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function padding($padding = '1.25rem')
@@ -15799,8 +15849,13 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
+         * Modal window background
+         * (CSS background property).
          * 
+         * The default background is '#fff'.
          *
+         * @param string $background
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function background($background = '#fff')
@@ -15810,8 +15865,12 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Set to false if you want to
+         * focus the first element in tab
+         * order instead of "Confirm"-button by default.
          *
+         * @param boolean $focus
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function focusConfirm($focus = true)
@@ -15821,8 +15880,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Set to true if you want to focus the
+         * "Cancel"-button by default.
          *
+         * @param boolean $focus
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function focusCancel($focus = false)
@@ -15832,8 +15894,13 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
+         * CSS classes for animations when showing a popup (fade in):
+         * CSS classes for animations when hiding a popup (fade out):
          *
+         * @param string $showAnimation
+         * @param string $hideAnimation
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function animation($showAnimation, $hideAnimation)
@@ -15843,8 +15910,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Persistent the alert modal
          *
+         * @param boolean $showConfirmBtn
+         * @param boolean $showCloseBtn
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function persistent($showConfirmBtn = true, $showCloseBtn = false)
@@ -15854,8 +15924,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * auto close alert modal after
+         * specifid time
          *
+         * @param integer $milliseconds
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function autoClose($milliseconds = 5000)
@@ -15865,8 +15938,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display confirm button
          *
+         * @param string $btnText
+         * @param string $btnColor
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function showConfirmButton($btnText = 'Ok', $btnColor = '#3085d6')
@@ -15876,8 +15952,11 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display cancel button
          *
+         * @param string $btnText
+         * @param string $btnColor
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function showCancelButton($btnText = 'Cancel', $btnColor = '#aaa')
@@ -15887,8 +15966,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Display close button
          *
+         * @param string $closeButtonAriaLabel
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function showCloseButton($closeButtonAriaLabel = 'aria-label')
@@ -15898,8 +15979,9 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Hide close button from alert or toast
          *
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function hideCloseButton()
@@ -15909,8 +15991,13 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
+         * Apply default styling to buttons.
          * 
+         * If you want to use your own classes (e.g. Bootstrap classes)
+         * set this parameter to false.
          *
+         * @param boolean $buttonsStyling
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function buttonsStyling($buttonsStyling)
@@ -15920,8 +16007,10 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
-         * 
+         * Use any HTML inside icons (e.g. Font Awesome)
          *
+         * @param string $iconHtml
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function iconHtml($iconHtml)
@@ -15931,9 +16020,23 @@ namespace RealRashid\SweetAlert\Facades {
         }
         
         /**
+         * If set to true, the timer will have a progress bar at the bottom of a popup.
+         * 
+         * Mostly, this feature is useful with toasts.
+         *
+         * @author Rashid Ali <realrashid05@gmail.com>
+         * @static 
+         */ 
+        public static function timerProgressBar()
+        {
+                        /** @var \RealRashid\SweetAlert\Toaster $instance */
+                        return $instance->timerProgressBar();
+        }
+        
+        /**
          * Reverse buttons position
          *
-         * @return \RealRashid\SweetAlert\RealRashid\SweetAlert\Toaster::alert(); by: https://github.com/Faber44/
+         * @author Faber44 <https://github.com/Faber44>
          * @static 
          */ 
         public static function reverseButtons()
@@ -15945,25 +16048,25 @@ namespace RealRashid\SweetAlert\Facades {
         /**
          * Flash the config options for alert.
          *
-         * @return void 
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function flash()
         {
                         /** @var \RealRashid\SweetAlert\Toaster $instance */
-                        $instance->flash();
+                        return $instance->flash();
         }
         
         /**
          * Build Flash config options for flashing.
          *
-         * @return void 
+         * @author Rashid Ali <realrashid05@gmail.com>
          * @static 
          */ 
         public static function buildConfig()
         {
                         /** @var \RealRashid\SweetAlert\Toaster $instance */
-                        $instance->buildConfig();
+                        return $instance->buildConfig();
         }
          
     }
