@@ -27,12 +27,12 @@ class DashboardController extends Controller {
             ->get();
 
         // Daily goal
-        $intToday = Craft::where('user_id', Auth::user()->id)
+        $intToday = Craft::ofUser()
             ->whereDate('created_at', date('Y-m-d'))
             ->count();
 
         // Recent crafts
-        $arrRecentCrafts = Craft::where('user_id', Auth::user()->id)
+        $arrRecentCrafts = Craft::ofUser()
             ->orderBy('created_at', 'DESC')
             ->limit(5)
             ->get();

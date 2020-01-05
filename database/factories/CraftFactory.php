@@ -8,7 +8,7 @@ use App\User;
 use App\Enchant;
 
 $factory->define(Craft::class, function (Faker $faker) {
-    $randomTimestamp = mt_rand(strtotime('-14 days'), time());
+    $randomTimestamp = mt_rand(strtotime('-10 days'), time());
     $randomDate = new DateTime();
     $randomDate->setTimestamp($randomTimestamp);
 

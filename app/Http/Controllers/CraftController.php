@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Craft;
 use App\Http\Requests\CraftStoreRequest;
 use Auth;
+use App\Events\CraftSaved;
+use App\Events\CraftDeleted;
 
 class CraftController extends Controller {
     public function index() {
@@ -26,7 +28,9 @@ class CraftController extends Controller {
     }
 
     public function store(CraftStoreRequest $request) {
-        Craft::create($request->all());
+        $objCraft = Craft::create($request->all());
+
+        event(new CraftSaved($objCraft));
 
         toast('Craft added!','success');
 
@@ -66,6 +70,8 @@ class CraftController extends Controller {
 
     public function destroy(Craft $craft) {
         $craft->delete();
+
+        event(new CraftDeleted($craft));
 
         toast('Craft deleted!','success');
 

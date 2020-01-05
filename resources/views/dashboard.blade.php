@@ -68,10 +68,10 @@
 
                 <div class="card mt-4">
                     <div class="card-body">
-                        <h2>Daily goal <small>{!! ($intToday >= 10) ? ' <i class="fas fa-check text-success"></i>' : '' !!}</small></h2>
+                        <h2>Daily goal <small>{!! ($intToday >= 6) ? ' <i class="fas fa-check text-success"></i>' : '' !!}</small></h2>
 
                         <div class="progress">
-                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 10) ? 100 : $intToday / 10 * 100 }}%;"></div>
+                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 6) ? 100 : $intToday / 6 * 100 }}%;"></div>
                         </div>
                     </div>
                 </div>
