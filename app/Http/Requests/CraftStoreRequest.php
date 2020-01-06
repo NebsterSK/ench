@@ -26,7 +26,8 @@ class CraftStoreRequest extends FormRequest {
             'enchant_id' => 'required|integer|exists:enchants,id',
             'mats' => 'nullable|string',
             'price' => 'nullable|numeric|min:0.01',
-            'buyer' => 'nullable|string|min:2|max:20'
+            'buyer' => 'nullable|string|min:2|max:20',
+            'class' => 'nullable|string|min:4|max:8'
         ];
     }
 

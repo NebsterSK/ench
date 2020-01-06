@@ -20,6 +20,7 @@ $factory->define(Craft::class, function (Faker $faker) {
     ];
 });
 
+// States
 $factory->state(Craft::class, 'matsRandom', [
     'mats' => function() {
         $array = [null, 'own', 'my'];
@@ -31,6 +32,14 @@ $factory->state(Craft::class, 'matsRandom', [
 $factory->state(Craft::class, 'priceRandom', [
     'price' => function() {
         $array = [null, random_int(2, 10)];
+        $key = array_rand($array);
+        return $array[$key];
+    }
+]);
+
+$factory->state(Craft::class, 'classRandom', [
+    'class' => function() {
+        $array = [null, 'druid', 'hunter', 'mage', 'paladin', 'priest', 'rogue', 'shaman', 'warlock', 'warrior'];
         $key = array_rand($array);
         return $array[$key];
     }

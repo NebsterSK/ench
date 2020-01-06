@@ -21,6 +21,22 @@
             <div class="col-12 col-lg-2">
                 <div class="card">
                     <div class="card-body">
+                        <div id="dailyGoal">
+                            <h2>Daily goal</h2>
+
+                            <p class="icon text-center mb-0">{!! ($intToday >= 6) ? '<i class="far fa-check-square text-success"></i>' : '<i class="fas fa-tasks text-secondary"></i>' !!}</p>
+
+                            <p class="text-center h4 font-weight-bold mb-0 text-secondary">{{ $intToday }} / 6 ENCHANTS</p>
+
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-first" role="progressbar" style="width: {{ ($intToday > 6) ? 100 : $intToday / 6 * 100 }}%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mt-4">
+                    <div class="card-body">
                         <h2>Craft</h2>
 
                         <form action="{{ route('crafts.store') }}" method="POST">
@@ -57,22 +73,27 @@
                                 <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
                             </div>
 
+                            <div class="form-group mt-2">
+                                <label for="class">Class</label>
+                                <select class="form-control" id="class" name="class">
+                                    <option value="druid">Druid</option>
+                                    <option value="hunter">Hunter</option>
+                                    <option value="mage">Mage</option>
+                                    <option value="paladin">Paladin</option>
+                                    <option value="priest">Priest</option>
+                                    <option value="rogue">Rogue</option>
+                                    <option value="shaman">Shaman</option>
+                                    <option value="warlock">Warlock</option>
+                                    <option value="warrior">Warrior</option>
+                                </select>
+                            </div>
+
                             <hr>
 
                             <div class="text-right">
                                 <button type="submit" class="btn btn-first btn-block"><i class="far fa-plus-square"></i> Craft</button>
                             </div>
                         </form>
-                    </div>
-                </div>
-
-                <div class="card mt-4">
-                    <div class="card-body">
-                        <h2>Daily goal <small>{!! ($intToday >= 6) ? ' <i class="fas fa-check text-success"></i>' : '' !!}</small></h2>
-
-                        <div class="progress">
-                            <div class="progress-bar bg-first" role="progressbar" style="width: {{ ($intToday > 6) ? 100 : $intToday / 6 * 100 }}%;"></div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -85,7 +106,6 @@
                         <form action="{{ route('crafts.store') }}" method="POST">
                             @csrf
 
-                            <label>Enchant</label>
                             <table class="table table-bordered table-striped table-sm">
                                 <thead>
                                 <tr>
@@ -94,8 +114,6 @@
                                     <th scope="col" style="width:100%">Enchant</th>
 
                                     <th scope="col"></th>
-
-                                    <th scope="col">Count</th>
                                 </tr>
                                 </thead>
 
@@ -136,6 +154,22 @@
                                 <label for="buyer">Buyer</label>
                                 <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
                             </div>
+
+                            <div class="form-group mt-2">
+                                <label for="class">Class</label>
+                                <select class="form-control" id="class" name="class">
+                                    <option value="">Class</option>
+                                    <option value="druid">Druid</option>
+                                    <option value="hunter">Hunter</option>
+                                    <option value="mage">Mage</option>
+                                    <option value="paladin">Paladin</option>
+                                    <option value="priest">Priest</option>
+                                    <option value="rogue">Rogue</option>
+                                    <option value="shaman">Shaman</option>
+                                    <option value="warlock">Warlock</option>
+                                    <option value="warrior">Warrior</option>
+                                </select>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -168,6 +202,8 @@
                                 <th scope="col">Price</th>
 
                                 <th scope="col">Buyer</th>
+
+                                <th scope="col">Class</th>
 
                                 <th scope="col"></th>
 
