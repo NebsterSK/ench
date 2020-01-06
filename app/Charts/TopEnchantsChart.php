@@ -11,7 +11,10 @@ class TopEnchantsChart extends Chart {
         // Make labels on two lines
         $arrLabels = [];
         foreach ($arrTopEnchants->pluck('name') as $name) {
-            $arrLabels[] = explode(' - ', $name);
+            $helper = explode(' - ', $name);
+            $helper[1] = (strlen($helper[1]) > 17) ? substr($helper[1],0,14).'...' : $helper[1];
+
+            $arrLabels[] = $helper;
         }
         $this->labels($arrLabels);
 

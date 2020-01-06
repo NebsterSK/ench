@@ -9,6 +9,8 @@
 
     <td class="text-capitalize">{{ $objCraft->buyer }}</td>
 
+    <td class="text-capitalize">{{ $objCraft->class }}</td>
+
     <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled"><i class="fas fa-edit"></i> Edit</a></td>
 
     <td class="text-nowrap">

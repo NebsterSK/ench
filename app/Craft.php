@@ -6,13 +6,47 @@ use Illuminate\Database\Eloquent\Model;
 use Auth;
 
 class Craft extends Model {
-    protected $fillable = ['user_id', 'enchant_id', 'mats', 'price', 'buyer'];
+    protected $fillable = ['user_id', 'enchant_id', 'mats', 'price', 'buyer', 'class'];
 
     protected $with = ['enchant'];
 
     // Accessors
     public function getIconAttribute() {
         return $this->enchant->icon;
+    }
+
+    public function getClassIconAttribute() {
+        switch ($this->class) {
+            case 'druid':
+                return 'druid.jpg';
+                break;
+            case 'hunter':
+                return 'hunter.jpg';
+                break;
+            case 'mage':
+                return 'mage.jpg';
+                break;
+            case 'paladin':
+                return 'paladin.jpg';
+                break;
+            case 'priest':
+                return 'priest.jpg';
+                break;
+            case 'rogue':
+                return 'rogue.jpg';
+                break;
+            case 'shaman':
+                return 'shaman.jpg';
+                break;
+            case 'warlock':
+                return 'warlock.jpg';
+                break;
+            case 'warrior':
+                return 'warrior.jpg';
+                break;
+        }
+
+        return '';
     }
 
     // Scopes

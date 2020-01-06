@@ -9,6 +9,4 @@
     <td class="text-nowrap">
         <button type="submit" name="enchant_id" value="{{ $objEnchant->id }}" class="btn btn-first btn-block btn-sm"><i class="far fa-plus-square"></i> Craft</button>
     </td>
-
-    <td class="text-right">{{ $objEnchant->crafts_count }}</td>
 </tr>
