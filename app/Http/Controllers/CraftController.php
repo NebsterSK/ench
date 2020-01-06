@@ -11,7 +11,7 @@ use App\Events\CraftDeleted;
 
 class CraftController extends Controller {
     public function index() {
-        $arrCrafts = Craft::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(20);
+        $arrCrafts = Craft::where('user_id', Auth::user()->id)->orderBy('created_at', 'DESC')->paginate(25);
 
         return view('crafts/index')->with([
             'arrCrafts' => $arrCrafts

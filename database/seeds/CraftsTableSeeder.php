@@ -10,6 +10,6 @@ class CraftsTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        factory(Craft::class, 200)->states('matsRandom', 'priceRandom', 'buyer')->create();
+        factory(Craft::class, 200)->states('matsRandom', 'priceRandom', 'buyer', 'classRandom')->create();
     }
 }
