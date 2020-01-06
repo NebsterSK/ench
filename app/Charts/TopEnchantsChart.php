@@ -25,14 +25,14 @@ class TopEnchantsChart extends Chart {
                 'xAxes' => [
                         [
                         'ticks' => [
-                            'fontSize' => 8
+                            'fontSize' => 12
                         ]
                     ]
                 ],
                 'yAxes' => [
                     [
                         'ticks' => [
-                            'fontSize' => 10
+                            'fontSize' => 12
                         ]
                     ]
                 ]

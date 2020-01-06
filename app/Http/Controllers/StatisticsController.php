@@ -25,24 +25,7 @@ class StatisticsController extends Controller {
             ->orderBy('name')
             ->limit(10)
             ->get();
-        $objTopEnchantsChart = (new TopEnchantsChart($arrTopEnchants))->options([
-            'scales' => [
-                'xAxes' => [
-                    [
-                        'ticks' => [
-                            'fontSize' => 10
-                        ]
-                    ]
-                ],
-                'yAxes' => [
-                    [
-                        'ticks' => [
-                            'fontSize' => 12
-                        ]
-                    ]
-                ]
-            ]
-        ]);
+        $objTopEnchantsChart = new TopEnchantsChart($arrTopEnchants);
 
         // Mats
         $arrMats = Craft::select(DB::raw('COALESCE(mats, \'not set\') AS mats, COUNT(ISNULL(mats)) AS count, ROUND(COUNT(ISNULL(mats)) / (SELECT COUNT(*) FROM crafts WHERE user_id = ' . Auth::user()->id . ') * 100, 1) AS perc'))
