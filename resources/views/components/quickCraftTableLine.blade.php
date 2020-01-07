@@ -2,7 +2,7 @@
     <td>{{ $loop->iteration }}</td>
 
     <td>
-        <img src="images/icons/{{ $objEnchant->icon }}" class="rounded" width="24" height="24" alt="">
+        <img src="{{ mix('images/icons/slots/' . $objEnchant->icon) }}" width="28" height="28" alt="">
         {{ $objEnchant->name }}
     </td>
 

@@ -1,7 +1,7 @@
 <tr>
     <td class="text-nowrap">{{ $objCraft->created_at->format('j.n.Y H:i:s') }}</td>
 
-    <td><img src="images/icons/{{ $objCraft->icon }}" class="rounded" width="24" height="24" alt=""> {{ $objCraft->enchant->name }}</td>
+    <td><img src="{{ mix('images/icons/slots/' . $objCraft->icon) }}" width="28" height="28" alt=""> {{ $objCraft->enchant->name }}</td>
 
     <td class="text-capitalize">{{ $objCraft->mats }}</td>
 
@@ -9,7 +9,11 @@
 
     <td class="text-capitalize">{{ $objCraft->buyer }}</td>
 
-    <td class="text-capitalize">{{ $objCraft->class }}</td>
+    <td>
+        @if($objCraft->classIcon != null)
+            <img src="{{ mix('images/icons/classes/' . $objCraft->classIcon) }}" class="d-block mx-auto" width="28" height="28" alt="">
+        @endif
+    </td>
 
     <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled"><i class="fas fa-edit"></i> Edit</a></td>
 

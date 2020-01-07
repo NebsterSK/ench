@@ -48,7 +48,7 @@ class DashboardController extends Controller {
             ->pluck('buyer');
 
         // Top Enchants chart
-        $objChart = new TopEnchantsChart($arrTopEnchants);
+        $objChart = new TopEnchantsChart($arrTopEnchants, 15);
 
         return view('dashboard')->with([
             'arrEnchants' => $arrEnchants,
