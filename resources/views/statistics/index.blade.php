@@ -61,12 +61,40 @@
                 </div>
             </div>
 
-            <div class="col-12 col-lg-8">
+            <div class="col-12 col-lg-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Classes</h2>
+
+                        <div style="height:260px">
+                            {!! $objClassChart->container() !!}
+                        </div>
+
+                        <table class="table table-bordered table-striped table-sm mb-0 mt-2">
+                            <thead>
+                            <tr>
+                                <th scope="col">Class</th>
+
+                                <th scope="col" class="text-right">Count</th>
+
+                                <th scope="col" class="text-right">Percentage</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            @each('components/classesTableLine', $arrClasses, 'objClass')
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
                         <h2>Top enchants</h2>
 
-                        <div style="height:330px">
+                        <div style="height:260px">
                             {!! $objTopEnchantsChart->container() !!}
                         </div>
                     </div>
@@ -76,7 +104,7 @@
                     <div class="card-body">
                         <h2>Crafts per day</h2>
 
-                        <div style="height:330px">
+                        <div style="height:260px">
                             {!! $objCraftsChart->container() !!}
                         </div>
                     </div>
@@ -93,4 +121,5 @@
     {!! $objMatsChart->script() !!}
     {!! $objCraftsChart->script() !!}
     {!! $objSlotChart->script() !!}
+    {!! $objClassChart->script() !!}
 @endsection
