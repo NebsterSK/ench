@@ -26,7 +26,7 @@
 
                             <p class="icon text-center mb-0">{!! ($intToday >= 6) ? '<i class="far fa-check-square text-success"></i>' : '<i class="fas fa-tasks text-secondary"></i>' !!}</p>
 
-                            <p class="text-center h4 font-weight-bold mb-0 text-secondary">{{ $intToday }} / 6 ENCHANTS</p>
+                            <p class="text-center h4 font-weight-bold mb-1 text-secondary">{{ $intToday }} / 6 ENCHANTS</p>
 
                             <div class="progress">
                                 <div class="progress-bar progress-bar-striped progress-bar-animated bg-first" role="progressbar" style="width: {{ ($intToday > 6) ? 100 : $intToday / 6 * 100 }}%;"></div>
