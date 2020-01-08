@@ -51,8 +51,8 @@
 
                             <label>Mats</label>
                             <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                                <label class="btn btn-first active">
-                                    <input type="radio" name="mats" id="mats1" value="own" checked> Own
+                                <label class="btn btn-first">
+                                    <input type="radio" name="mats" id="mats1" value="own"> Own
                                 </label>
 
                                 <label class="btn btn-first">
@@ -73,19 +73,52 @@
                                 <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
                             </div>
 
-                            <div class="form-group mt-2">
-                                <label for="class">Class</label>
-                                <select class="form-control" id="class" name="class">
-                                    <option value="druid">Druid</option>
-                                    <option value="hunter">Hunter</option>
-                                    <option value="mage">Mage</option>
-                                    <option value="paladin">Paladin</option>
-                                    <option value="priest">Priest</option>
-                                    <option value="rogue">Rogue</option>
-                                    <option value="shaman">Shaman</option>
-                                    <option value="warlock">Warlock</option>
-                                    <option value="warrior">Warrior</option>
-                                </select>
+                            <label>Class</label>
+                            <div class="classSelector">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class1" name="class" class="custom-control-input" value="druid">
+                                    <label class="custom-control-label druid" for="class1"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class2" name="class" class="custom-control-input" value="hunter">
+                                    <label class="custom-control-label hunter" for="class2"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class3" name="class" class="custom-control-input" value="mage">
+                                    <label class="custom-control-label mage" for="class3"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class4" name="class" class="custom-control-input" value="paladin">
+                                    <label class="custom-control-label paladin" for="class4"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class5" name="class" class="custom-control-input" value="priest">
+                                    <label class="custom-control-label priest" for="class5"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class6" name="class" class="custom-control-input" value="rogue">
+                                    <label class="custom-control-label rogue" for="class6"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class7" name="class" class="custom-control-input" value="shaman">
+                                    <label class="custom-control-label shaman" for="class7"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class8" name="class" class="custom-control-input" value="warlock">
+                                    <label class="custom-control-label warlock" for="class8"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class9" name="class" class="custom-control-input" value="warrior">
+                                    <label class="custom-control-label warrior" for="class9"></label>
+                                </div>
                             </div>
 
                             <hr>
@@ -129,10 +162,6 @@
 
                             <label>Mats</label>
                             <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                                <label class="btn btn-first active">
-                                    <input type="radio" name="mats" id="mats1" value="null" checked> Not set
-                                </label>
-
                                 <label class="btn btn-first">
                                     <input type="radio" name="mats" id="mats2" value="own"> Own
                                 </label>
@@ -155,20 +184,52 @@
                                 <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
                             </div>
 
-                            <div class="form-group mt-2">
-                                <label for="class">Class</label>
-                                <select class="form-control" id="class" name="class">
-                                    <option value="">Class</option>
-                                    <option value="druid">Druid</option>
-                                    <option value="hunter">Hunter</option>
-                                    <option value="mage">Mage</option>
-                                    <option value="paladin">Paladin</option>
-                                    <option value="priest">Priest</option>
-                                    <option value="rogue">Rogue</option>
-                                    <option value="shaman">Shaman</option>
-                                    <option value="warlock">Warlock</option>
-                                    <option value="warrior">Warrior</option>
-                                </select>
+                            <label>Class</label>
+                            <div class="classSelector">
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class10" name="class" class="custom-control-input" value="druid">
+                                    <label class="custom-control-label druid" for="class10"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class11" name="class" class="custom-control-input" value="hunter">
+                                    <label class="custom-control-label hunter" for="class11"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class12" name="class" class="custom-control-input" value="mage">
+                                    <label class="custom-control-label mage" for="class12"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class13" name="class" class="custom-control-input" value="paladin">
+                                    <label class="custom-control-label paladin" for="class13"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class14" name="class" class="custom-control-input" value="priest">
+                                    <label class="custom-control-label priest" for="class14"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class15" name="class" class="custom-control-input" value="rogue">
+                                    <label class="custom-control-label rogue" for="class15"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class16" name="class" class="custom-control-input" value="shaman">
+                                    <label class="custom-control-label shaman" for="class16"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class17" name="class" class="custom-control-input" value="warlock">
+                                    <label class="custom-control-label warlock" for="class17"></label>
+                                </div>
+
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" id="class18" name="class" class="custom-control-input" value="warrior">
+                                    <label class="custom-control-label warrior" for="class18"></label>
+                                </div>
                             </div>
                         </form>
                     </div>
