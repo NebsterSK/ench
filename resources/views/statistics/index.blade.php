@@ -21,7 +21,7 @@
 
                                 <th scope="col" class="text-right">Count</th>
 
-                                <th scope="col" class="text-right">Percentage</th>
+                                <th scope="col" class="text-right">%</th>
                             </tr>
                             </thead>
 
@@ -49,7 +49,7 @@
 
                                 <th scope="col" class="text-right">Count</th>
 
-                                <th scope="col" class="text-right">Percentage</th>
+                                <th scope="col" class="text-right">%</th>
                             </tr>
                             </thead>
 
@@ -77,12 +77,12 @@
 
                                 <th scope="col" class="text-right">Count</th>
 
-                                <th scope="col" class="text-right">Percentage</th>
+                                <th scope="col" class="text-right">%</th>
                             </tr>
                             </thead>
 
                             <tbody>
-                            @each('components/classesTableLine', $arrClasses, 'objClass')
+                            @each('components/classesTableLine', $arrClasses, 'objCraft')
                             </tbody>
                         </table>
                     </div>

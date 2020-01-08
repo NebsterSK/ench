@@ -49,6 +49,40 @@ class Craft extends Model {
         return '';
     }
 
+    public function getClassColorAttribute() {
+        switch ($this->class) {
+            case 'druid':
+                return '#FF7D0A';
+                break;
+            case 'hunter':
+                return '#ABD473';
+                break;
+            case 'mage':
+                return '#69CCF0';
+                break;
+            case 'paladin':
+                return '#F58CBA';
+                break;
+            case 'priest':
+                return '#FFFFFF';
+                break;
+            case 'rogue':
+                return '#FFF569';
+                break;
+            case 'shaman':
+                return '#0070DE';
+                break;
+            case 'warlock':
+                return '#9482C9';
+                break;
+            case 'warrior':
+                return '#C79C6E';
+                break;
+        }
+
+        return '';
+    }
+
     // Scopes
     public function scopeOfUser($query, $user_id = null) {
         $query->where('user_id', ($user_id === null) ? Auth::user()->id : $user_id);
