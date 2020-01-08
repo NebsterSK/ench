@@ -1,0 +1,36 @@
+@import '../vars'
+
+.classSelector
+  .custom-radio
+    padding-left: 0
+    margin-right: 4px
+
+    &:nth-of-type(5),
+    &:last-of-type
+      margin-right: 0
+
+    .custom-control-input
+      &:checked + label
+        filter: grayscale(0%)
+        border: 2px solid $color-primary-dark
+
+    .custom-control-label
+      border: 2px solid $color-secondary
+      background-size: contain
+      background-color: $color-secondary
+      filter: grayscale(100%)
+      transition: all 0.2s
+      width: 36px
+      height: 36px
+
+      &::before,
+      &::after
+        display: none
+
+      &:hover
+        filter: grayscale(0%)
+        cursor: pointer
+
+      @each $class in $classes
+        &.#{$class}
+          background-image: url('../images/icons/classes/' + #{$class} + '.jpg')
