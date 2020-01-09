@@ -30,3 +30,7 @@
       @each $class in $classes
         &.#{$class}
           background-image: url('../images/icons/classes/' + #{$class} + '.jpg')
+
+// Fix because of bootstrap-select
+.select-picker
+  border: 1px solid #ced4da !important
