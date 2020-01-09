@@ -15,6 +15,10 @@ class DashboardController extends Controller {
 
         // List of all Enchants
         $arrEnchants = Enchant::orderBy('name')->get();
+        $enchantGroups = [];
+        foreach ($arrEnchants as $enchant) {
+            $enchantGroups[explode(' - ', $enchant->name)[0]][] = $enchant;
+        }
 
         // Quick craft
         $arrTopEnchants = Enchant::withCount(['crafts' => function(Builder $query) {
@@ -51,7 +55,7 @@ class DashboardController extends Controller {
         $objChart = new TopEnchantsChart($arrTopEnchants, 15);
 
         return view('dashboard')->with([
-            'arrEnchants' => $arrEnchants,
+            'enchantGroups' => $enchantGroups,
             'arrRecentCrafts' => $arrRecentCrafts,
             'arrTopEnchants' => $arrTopEnchants,
             'objChart' => $objChart,

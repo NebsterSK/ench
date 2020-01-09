@@ -45,7 +45,11 @@
                             <div class="form-group mt-2">
                                 <label for="enchant_id">Enchant</label>
                                 <select class="form-control form-control-lg" id="enchant_id" name="enchant_id">
-                                    @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
+                                    @foreach($enchantGroups as $key => $enchants)
+                                        <optgroup label="{{ $key }}">
+                                            @each('components/enchantSelectOption', $enchants, 'objEnchant')
+                                        </optgroup>
+                                    @endforeach
                                 </select>
                             </div>
 
