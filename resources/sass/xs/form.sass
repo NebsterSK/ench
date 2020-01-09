@@ -3,11 +3,7 @@
 .classSelector
   .custom-radio
     padding-left: 0
-    margin-right: 4px
-
-    &:nth-of-type(5),
-    &:last-of-type
-      margin-right: 0
+    margin-right: 0
 
     .custom-control-input
       &:checked + label
@@ -20,8 +16,8 @@
       background-color: $color-secondary
       filter: grayscale(100%)
       transition: all 0.2s
-      width: 36px
-      height: 36px
+      width: 40px
+      height: 40px
 
       &::before,
       &::after
@@ -34,3 +30,7 @@
       @each $class in $classes
         &.#{$class}
           background-image: url('../images/icons/classes/' + #{$class} + '.jpg')
+
+// Fix because of bootstrap-select
+.select-picker
+  border: 1px solid #ced4da !important

@@ -44,8 +44,12 @@
 
                             <div class="form-group mt-2">
                                 <label for="enchant_id">Enchant</label>
-                                <select class="form-control form-control-lg" id="enchant_id" name="enchant_id">
-                                    @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
+                                <select class="form-control form-control-lg select-picker" id="enchant_id" name="enchant_id" data-live-search="true">
+                                    @foreach($enchantGroups as $key => $enchants)
+                                        <optgroup label="{{ $key }}">
+                                            @each('components/enchantSelectOption', $enchants, 'objEnchant')
+                                        </optgroup>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -74,7 +78,7 @@
                             </div>
 
                             <label>Class</label>
-                            <div class="classSelector">
+                            <div class="classSelector d-flex justify-content-between">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="class1" name="class" class="custom-control-input" value="druid">
                                     <label class="custom-control-label druid" for="class1"></label>
@@ -99,7 +103,9 @@
                                     <input type="radio" id="class5" name="class" class="custom-control-input" value="priest">
                                     <label class="custom-control-label priest" for="class5"></label>
                                 </div>
+                            </div>
 
+                            <div class="classSelector d-flex justify-content-between mt-2">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="class6" name="class" class="custom-control-input" value="rogue">
                                     <label class="custom-control-label rogue" for="class6"></label>
@@ -171,21 +177,27 @@
                                 </label>
                             </div>
 
-                            <label for="price">Price</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">g</span>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <label for="price">Price</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">g</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="buyer">Buyer</label>
+                                        <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="form-group mt-2">
-                                <label for="buyer">Buyer</label>
-                                <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
-                            </div>
-
                             <label>Class</label>
-                            <div class="classSelector">
+                            <div class="classSelector d-flex justify-content-between">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="class10" name="class" class="custom-control-input" value="druid">
                                     <label class="custom-control-label druid" for="class10"></label>
