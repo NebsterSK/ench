@@ -44,8 +44,12 @@
 
                             <div class="form-group mt-2">
                                 <label for="enchant_id">Enchant</label>
-                                <select class="form-control form-control-lg" id="enchant_id" name="enchant_id">
-                                    @each('components/enchantSelectOption', $arrEnchants, 'objEnchant')
+                                <select class="form-control form-control-lg select-picker" id="enchant_id" name="enchant_id" data-live-search="true">
+                                    @foreach($enchantGroups as $key => $enchants)
+                                        <optgroup label="{{ $key }}">
+                                            @each('components/enchantSelectOption', $enchants, 'objEnchant')
+                                        </optgroup>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -173,17 +177,23 @@
                                 </label>
                             </div>
 
-                            <label for="price">Price</label>
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01">
-                                <div class="input-group-append">
-                                    <span class="input-group-text">g</span>
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <label for="price">Price</label>
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" id="price" name="price" min="0.01" step="0.01">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">g</span>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group mt-2">
-                                <label for="buyer">Buyer</label>
-                                <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
+                                <div class="col-12 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="buyer">Buyer</label>
+                                        <input type="text" class="form-control" id="buyer" name="buyer" list="buyers" minlength="2" maxlength="20">
+                                    </div>
+                                </div>
                             </div>
 
                             <label>Class</label>

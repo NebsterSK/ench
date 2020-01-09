@@ -39,3 +39,6 @@ try {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+// Bootstrap-select
+require('bootstrap-select/js/bootstrap-select');
