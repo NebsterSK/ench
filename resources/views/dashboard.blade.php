@@ -74,7 +74,7 @@
                             </div>
 
                             <label>Class</label>
-                            <div class="classSelector">
+                            <div class="classSelector d-flex justify-content-between">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="class1" name="class" class="custom-control-input" value="druid">
                                     <label class="custom-control-label druid" for="class1"></label>
@@ -99,7 +99,9 @@
                                     <input type="radio" id="class5" name="class" class="custom-control-input" value="priest">
                                     <label class="custom-control-label priest" for="class5"></label>
                                 </div>
+                            </div>
 
+                            <div class="classSelector d-flex justify-content-between mt-2">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="class6" name="class" class="custom-control-input" value="rogue">
                                     <label class="custom-control-label rogue" for="class6"></label>
@@ -185,7 +187,7 @@
                             </div>
 
                             <label>Class</label>
-                            <div class="classSelector">
+                            <div class="classSelector d-flex justify-content-between">
                                 <div class="custom-control custom-radio custom-control-inline">
                                     <input type="radio" id="class10" name="class" class="custom-control-input" value="druid">
                                     <label class="custom-control-label druid" for="class10"></label>
