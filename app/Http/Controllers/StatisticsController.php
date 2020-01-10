@@ -29,8 +29,9 @@ class StatisticsController extends Controller {
         $objTopEnchantsChart = new TopEnchantsChart($arrTopEnchants, 17);
 
         // Mats
-        $arrMats = Craft::select(DB::raw('COALESCE(mats, \'not set\') AS mats, COUNT(ISNULL(mats)) AS count, ROUND(COUNT(ISNULL(mats)) / (SELECT COUNT(*) FROM crafts WHERE user_id = ' . Auth::user()->id . ') * 100, 1) AS perc'))
+        $arrMats = Craft::select(DB::raw('mats, COUNT(mats) AS count, ROUND(COUNT(mats) / (SELECT COUNT(*) FROM crafts WHERE user_id = ' . Auth::user()->id . ' AND mats IS NOT NULL) * 100, 1) AS perc'))
             ->ofUser()
+            ->whereNotNull('mats')
             ->groupBy('mats')
             ->orderBy('count', 'DESC')
             ->get();
@@ -56,8 +57,9 @@ class StatisticsController extends Controller {
         $objSlotChart = new SlotChart($arrSlots);
 
         // Classes
-        $arrClasses = Craft::select(DB::raw('COALESCE(class, \'not set\') AS class, COUNT(ISNULL(class)) AS count, ROUND(COUNT(ISNULL(class)) / (SELECT COUNT(ISNULL(class)) FROM ench.crafts WHERE user_id = 1) * 100, 1) AS perc'))
+        $arrClasses = Craft::select(DB::raw('class, COUNT(class) AS count, ROUND(COUNT(class) / (SELECT COUNT(class) FROM ench.crafts WHERE user_id = ' . Auth::user()->id . ' AND class IS NOT NULL) * 100, 1) AS perc'))
             ->ofUser()
+            ->whereNotNull('class')
             ->groupBy('class')
             ->orderBy('count', 'DESC')
             ->orderBy('class')
