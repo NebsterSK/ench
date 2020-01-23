@@ -18,8 +18,8 @@ Auth::routes();
 Route::middleware(['auth'])->group(function() {
     Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-    Route::resource('crafts', 'CraftController')->only([
-        'index', 'store', 'destroy'
+    Route::resource('crafts', 'CraftController')->except([
+        'show', 'create'
     ]);
 
     Route::get('/statistics', 'StatisticsController@index')->name('statistics');
