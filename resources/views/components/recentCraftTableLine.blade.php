@@ -15,7 +15,7 @@
         @endif
     </td>
 
-    <td class="text-nowrap"><a href="" class="btn btn-secondary btn-sm disabled"><i class="fas fa-edit"></i> Edit</a></td>
+    <td class="text-nowrap"><a href="{{ route('crafts.edit', $objCraft->id) }}" class="btn btn-secondary btn-sm"><i class="fas fa-edit"></i> Edit</a></td>
 
     <td class="text-nowrap">
         <form action="{{ route('crafts.destroy', $objCraft->id) }}" method="POST">

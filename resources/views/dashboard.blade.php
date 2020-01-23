@@ -24,7 +24,11 @@
                         <div id="dailyGoal">
                             <h2>Daily goal</h2>
 
-                            <p class="icon text-center mb-0">{!! ($intToday >= 6) ? '<i class="far fa-check-square text-success"></i>' : '<i class="fas fa-tasks text-secondary"></i>' !!}</p>
+                            <p class="icon text-center mb-0">
+                                @if($intToday >= 6)<i class="far fa-check-square text-success"></i>
+                                @else<i class="fas fa-tasks text-secondary"></i>
+                                @endif
+                            </p>
 
                             <p class="text-center h4 font-weight-bold mb-1 text-secondary">{{ $intToday }} / 6 ENCHANTS</p>
 
@@ -44,25 +48,16 @@
 
                             <div class="form-group mt-2">
                                 <label for="enchant_id">Enchant</label>
-                                <select class="form-control form-control-lg select-picker" id="enchant_id" name="enchant_id" data-live-search="true">
-                                    @foreach($enchantGroups as $key => $enchants)
-                                        <optgroup label="{{ $key }}">
-                                            @each('components/enchantSelectOption', $enchants, 'objEnchant')
-                                        </optgroup>
-                                    @endforeach
-                                </select>
+                                @component('components/enchantSelect', [
+                                    'enchantGroups' => $enchantGroups,
+                                    'selectedId' => null
+                                ])@endcomponent
                             </div>
 
                             <label>Mats</label>
-                            <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                                <label class="btn btn-first">
-                                    <input type="radio" name="mats" id="mats1" value="own"> Own
-                                </label>
-
-                                <label class="btn btn-first">
-                                    <input type="radio" name="mats" id="mats2" value="my"> My
-                                </label>
-                            </div>
+                            @component('components/matsRadios', [
+                                'checkedMats' => null
+                            ])@endcomponent
 
                             <label for="price">Price</label>
                             <div class="input-group">
@@ -167,15 +162,9 @@
                             </table>
 
                             <label>Mats</label>
-                            <div class="btn-group btn-group-toggle d-flex mb-2" data-toggle="buttons">
-                                <label class="btn btn-first">
-                                    <input type="radio" name="mats" id="mats2" value="own"> Own
-                                </label>
-
-                                <label class="btn btn-first">
-                                    <input type="radio" name="mats" id="mats3" value="my"> My
-                                </label>
-                            </div>
+                            @component('components/matsRadios', [
+                                'checkedMats' => null
+                            ])@endcomponent
 
                             <div class="row">
                                 <div class="col-12 col-lg-6">
@@ -197,52 +186,9 @@
                             </div>
 
                             <label>Class</label>
-                            <div class="classSelector d-flex justify-content-between">
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class10" name="class" class="custom-control-input" value="druid">
-                                    <label class="custom-control-label druid" for="class10"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class11" name="class" class="custom-control-input" value="hunter">
-                                    <label class="custom-control-label hunter" for="class11"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class12" name="class" class="custom-control-input" value="mage">
-                                    <label class="custom-control-label mage" for="class12"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class13" name="class" class="custom-control-input" value="paladin">
-                                    <label class="custom-control-label paladin" for="class13"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class14" name="class" class="custom-control-input" value="priest">
-                                    <label class="custom-control-label priest" for="class14"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class15" name="class" class="custom-control-input" value="rogue">
-                                    <label class="custom-control-label rogue" for="class15"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class16" name="class" class="custom-control-input" value="shaman">
-                                    <label class="custom-control-label shaman" for="class16"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class17" name="class" class="custom-control-input" value="warlock">
-                                    <label class="custom-control-label warlock" for="class17"></label>
-                                </div>
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" id="class18" name="class" class="custom-control-input" value="warrior">
-                                    <label class="custom-control-label warrior" for="class18"></label>
-                                </div>
-                            </div>
+                            @component('components/classSelector', [
+                                'checkedClass' => null
+                            ])@endcomponent
                         </form>
                     </div>
                 </div>
