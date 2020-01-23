@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Enchant;
 use Illuminate\Http\Request;
 use App\Craft;
 use App\Http\Requests\CraftStoreRequest;
 use Auth;
 use App\Events\CraftSaved;
+use App\Events\CraftUpdated;
 use App\Events\CraftDeleted;
 
 class CraftController extends Controller {
@@ -47,25 +49,28 @@ class CraftController extends Controller {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id) {
-        //
+    public function edit(Craft $craft) {
+        // List of all Enchants
+        $arrEnchants = Enchant::orderBy('name')->get();
+        $enchantGroups = [];
+        foreach ($arrEnchants as $enchant) {
+            $enchantGroups[explode(' - ', $enchant->name)[0]][] = $enchant;
+        }
+
+        return view('crafts/edit')->with([
+            'craft' => $craft,
+            'enchantGroups' => $enchantGroups
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id) {
-        //
+    public function update(CraftStoreRequest $request, Craft $craft) {
+        $craft->update($request->all());
+
+        event(new CraftUpdated($craft));
+
+        toast('Craft edited!','success');
+
+        return back();
     }
 
     public function destroy(Craft $craft) {
